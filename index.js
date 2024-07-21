@@ -5,9 +5,14 @@ const authRoutes = require('./routes/authRoutes');
 const bookRoutes = require('./routes/bookRoutes');
 const { swaggerOptions } = require('./config/swagger');
 const connectDB = require('./config/db');
+
+const cors = require('cors');
+
+
 require('dotenv').config();
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
