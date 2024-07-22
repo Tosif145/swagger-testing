@@ -4,7 +4,7 @@ const User = require('../models/userModel');
 const addBook = async (req, res) => {
   const { bookName } = req.body;
   const { username } = req.user;
-  
+
   if (!bookName) return res.status(400).send('Book name is required');
 
   try {
@@ -23,7 +23,7 @@ const addBook = async (req, res) => {
 const deleteBook = async (req, res) => {
   const { bookName } = req.body;
   const { username } = req.user;
-  
+
   if (!bookName) return res.status(400).send('Book name is required');
 
   try {
