@@ -5,7 +5,7 @@ const { authenticateToken } = require('../middleware/authMiddleware');
 
 /**
  * @openapi
- * /books/add:
+ * /add:
  *   post:
  *     summary: Add a favorite book
  *     security:
@@ -28,7 +28,7 @@ router.post('/add', authenticateToken, addBook);
 
 /**
  * @openapi
- * /books/delete:
+ * /delete:
  *   delete:
  *     summary: Delete a favorite book
  *     security:

@@ -6,6 +6,7 @@ const bookRoutes = require('./routes/bookRoutes');
 const { swaggerOptions } = require('./config/swagger');
 const connectDB = require('./config/db');
 require('dotenv').config();
+const router = express.Router();
 
 const app = express();
 app.use(express.json());
@@ -17,13 +18,17 @@ app.get('/', (req, res) => {
     res.send('Hello, World!');
 })
 
+// Routes
+app.use('/', authRoutes);
+app.use('/', bookRoutes);
+
 // Swagger setup
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+router.use('/api-docs', swaggerUi.serve);
+router.get('/api-docs',swaggerUi.setup(swaggerSpec))
 
-// Routes
-app.use('/auth', authRoutes);
-app.use('/books', bookRoutes);
+
+
 
 app.listen(3000, () => {
   console.log('Server running on port 3000');

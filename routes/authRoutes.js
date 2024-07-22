@@ -4,7 +4,7 @@ const { registerUser, loginUser } = require('../controllers/authController');
 
 /**
  * @openapi
- * /auth/register:
+ * /register:
  *   post:
  *     summary: Register a new user
  *     requestBody:
@@ -29,7 +29,7 @@ router.post('/register', registerUser);
 
 /**
  * @openapi
- * /auth/login:
+ * /login:
  *   post:
  *     summary: Login user to get JWT token
  *     requestBody:
