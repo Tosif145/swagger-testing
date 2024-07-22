@@ -24,8 +24,8 @@ app.use('/', bookRoutes);
 
 // Swagger setup
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
-router.use('/api-docs', swaggerUi.serve);
-router.get('/api-docs',swaggerUi.setup(swaggerSpec))
+app.use('/api-docs', swaggerUi.serve);
+app.get('/api-docs',swaggerUi.setup(swaggerSpec))
 
 
 
